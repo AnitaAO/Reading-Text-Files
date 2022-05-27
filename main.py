@@ -3,35 +3,26 @@
 # count_words("The cake is done. It is a big cake!") 
 # --> {"cake":2, "big":1, "is":2, "the":1, "a":1, "it":1}
 
-from fileinput import filename
+from collections import Counter
 
 
 def read_file_content(filename):
     # [assignment] Add your code here 
-    with open("story.txt", 'r') as filename:
-        filename = filename.read
-    
-    output = read_file_content('story.txt')
-    print(output)
+    with open(filename, 'r') as story:
+        content = story.read
 
+        story.close()
+    
+    return content
+
+    # print(read_file_content("story.txt"))
 
 def count_words():
-    text = read_file_content("./story.txt")
+    text = read_file_content("story.txt")
+
     # [assignment] Add your code here
     
-    text=filename.split()
-    print(text)
-    text=filename.strip("punctuations")
+    text_dictionary = Counter(text.split())
+    return print(text_dictionary)
 
-    #the recreating dictionary
-    count={}
-    for text in filename:
-        if text in count.keys():
-            count[text]+=1
-
-    else:
-        count[text]=+1
-
-    print(count)
-
-   
+count_words()   
