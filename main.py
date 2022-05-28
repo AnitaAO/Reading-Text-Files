@@ -9,42 +9,30 @@ from fileinput import filename
 from importlib.resources import contents
 
 
-file = open('./story.txt', 'r')
-content = file.read()
+import os
+import sys 
+with open(os.path.join(sys.path[0], 
+"story.txt"), "r") as f: 
+    print (f.read())
 
 def read_file_content():
     # [assignment] Add your code here 
-    content = file.read()
+    content = f.read()
 
-    return content
-    
-print(content)
-def count_words(content):
-    counts = dict()
-    text = content.split()
+    return content   
+print(f)
 
-    for word in text:
-        if word in counts:
-            counts[word] += 1
-        else:
-            counts[word] = 1
-    return counts
-
-
-    # print(read_file_content("story.txt"))
-
-def count_words(filename):
-    
-    text = read_file_content("story.txt")
-
+def count_words():
+    text = read_file_content('./story.txt')
     # [assignment] Add your code here
-    counts = dict()
-    text = filename.split()
-
-    for word in text:
-
-        if word in counts:
-            counts() +- 1
+    words = text.split()
+    print(words)
+    count = dict()
+    
+    for word in words:
+        if word in count.keys():
+            count[word] += 1
         else:
-            counts() - 1
-    return counts
+            count[word] = 1
+    return count
+print(count_words())
