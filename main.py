@@ -15,24 +15,26 @@ with open(os.path.join(sys.path[0],
 "story.txt"), "r") as f: 
     print (f.read())
 
-def read_file_content():
+def read_file_content(filename):
     # [assignment] Add your code here 
+    #function to open file 
+    f = open(filename, 'r')
+
+    #read file and return string
     content = f.read()
 
-    return content   
-print(f)
+    #close the file
+    f.close()
+
+    return content
+
+#print(read_file_content("story.txt"))
+
 
 def count_words():
-    text = read_file_content('./story.txt')
+    text = read_file_content("story.txt")
     # [assignment] Add your code here
-    words = text.split()
-    print(words)
-    count = dict()
-    
-    for word in words:
-        if word in count.keys():
-            count[word] += 1
-        else:
-            count[word] = 1
-    return count
-print(count_words())
+    text_dictionary = Counter(text.split())
+    return print(text_dictionary)
+
+count_words()
